@@ -27,7 +27,7 @@ public class MergeKElements {
 
 		// array is the index of array
 		int array, index, value;
-		//to retain +ve or -ve order
+		//to retain ascending or descending order
 		boolean isAsc ;
 
 		public QueueNode(int array, int index, int value,boolean isAsc) {
@@ -40,7 +40,7 @@ public class MergeKElements {
 
 		@Override
 		public int compareTo(QueueNode o) {
-			//to retain +ve or -ve order
+			//to retain ascending or descending  order
 			if(o.isAsc){
 				if (value < o.value)
 					return 1;
