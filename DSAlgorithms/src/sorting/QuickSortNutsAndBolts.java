@@ -5,48 +5,56 @@ import java.util.Arrays;
 
 public class QuickSortNutsAndBolts {
 
+	private static int[] nut ={64, 35, 36, 37, 38, 94,76,56,45};
+	
+	private static int[]  comp={36, 37, 35, 38, 64, 94,76,56,45};
+	
 	public static void main(String[] args) {
 
-	//	int[] num1 = { 1,4,3,2 };
-	//	int[] num2 = {2,3,4,1};
-		int[] num1 = {64, 35, 36, 37, 38, 94};
-		int[] num2 = {36, 37, 35, 94, 64, 38};
-	      
-		System.out.println(Arrays.toString(quickSort(num1,num2, 0, num1.length - 1)));
-		System.out.println(Arrays.toString(quickSort(num2,num1, 0, num2.length - 1)));
+	quickSort(nut, comp, 0, nut.length-1);
+	
+	System.out.println(Arrays.toString(nut));
+	System.out.println(Arrays.toString(comp));
+	
 	}
 	
-	public static int[] quickSort(int[] num,int[] comp, int start, int end) {
+	public static void  quickSort(int[] nut,int[] comp, int start, int end) {
 
 		if (start > end)
-			return num;
+			return ;
 
-		int pivot = end;
-
-		pivot = partition(num, comp[pivot], start, end);
-		quickSort(num,comp, start, pivot - 1);
-		return quickSort(num, comp,pivot + 1, end);
+		int pivot =  partition(nut, comp[end], start, end);
+		pivot = partition(comp, nut[pivot], start, end);
+		
+		quickSort(nut, comp, start, pivot - 1);
+		quickSort(nut, comp, pivot + 1, end);
 		
 	
 	}
 
-	public static int partition(int[] inp, int pivot, int start, int end) {
-
-		if (start >= end) {
+public static int partition(int[] input,int pivot,int start,int end){
+		
+		if(start>=end){
 			return start;
 		}
-		while (inp[start] < pivot) {
+		
+		while(input[start]<pivot)
+		{
 			start++;
 		}
-		while (inp[end] > pivot) {
+		
+		while(input[end]>pivot )
+		{
+			
 			end--;
 		}
-		if (start < end) {
-			int temp = inp[start];
-			inp[start] = inp[end];
-			inp[end] = temp;
+		if(start<=end){
+		int temp = input[start];
+		input[start] = input[end];
+		input[end]=temp;
 		}
-		return partition(inp, pivot, start, end);
+		return partition(input, pivot, start, end);
+		
 	}
 
 }
