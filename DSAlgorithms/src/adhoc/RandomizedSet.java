@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RandomizedSet {
-	//https://leetcode.com/problems/insert-delete-getrandom-o1/description/
+	//https://leetcode.com/problems/insert-delete-getrandom-o1/description
 	ArrayList<Integer> nums;
 	HashMap<Integer, Integer> locs;
 	 java.util.Random rand ;
